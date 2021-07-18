@@ -1,0 +1,12 @@
+﻿.tablebayezid {
+    
+    text-align: justify !important;
+	font-weight:200 !important;
+}
+
+.table td {
+    text-align: justify !important;
+}
+
+.m-radio, .m-checkbox {
+    margin-bottom: 13px !important;;}
