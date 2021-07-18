@@ -1,0 +1,47 @@
+git add .
+git commit -m "Version_0.92.0"
+git push -u
+
+
+php artisan vendor:publish --provider="Devfaysal\BangladeshGeocode\BangladeshGeocodeServiceProvider"
+ss
+#If you need to overrride previously published migrationa and seeders
+php artisan vendor:publish --provider="Devfaysal\BangladeshGeocode\BangladeshGeocodeServiceProvider" --force
+
+php artisan migrate
+
+composer dump-autoload
+
+php artisan db:seed --class=DivisionSeeder
+php artisan db:seed --class=DistrictSeeder
+php artisan db:seed --class=UpazilaSeeder
+
+
+git reset --hard HEAD
+git pull
+// this function to delete 
+git clean -xffd
+
+
+
+52.172.255.122
+To become root user type: sudo -i. sudo -s.
+## Start command ##
+systemctl start apache2.service
+## Stop command ##
+systemctl stop apache2.service
+## Restart command ##
+systemctl restart apache2.service
+
+sudo chmod -R 777 /var/www/html/ehr/public
+sudo chmod -R 777 /var/www/html/ehr/storage
+
+composer install
+cp .env.example .env
+php artisan key:generate
+chmod 755 -R /var/www/html/ehr
+chmod -R o+w nameofyourproject/storage
+
+php artisan cache:clear
+php artisan view:clear
+php artisan config:clear
