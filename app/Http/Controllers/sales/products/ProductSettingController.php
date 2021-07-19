@@ -44,6 +44,8 @@ class ProductSettingController extends Controller
     {
         //
     }
+    
+    //    -------------- CONTROLLER FOR PRODUCT UNIT ------------
     public function unitStore(Request $request){
        $unit = new Unit();
        $unit->unit_name = $request->unit_name;
@@ -51,24 +53,43 @@ class ProductSettingController extends Controller
        $unit->save();
        return redirect()->back();
     }
+
     public function unitEdit(Request $request,$id)
     {
         $unit = Unit::where("id",$id)->where("company_id",company_id())->first();
-
 		if(! $request->ajax()){
             return view('backend/sales/products/settings/modal.edit', compact('unit','id'));
 		}else{
            return view('backend.accounting.product.modal.edit',compact('item','id'));
           
-
 		}  
         
     }
     public function unitDelete($id){
-      $del = Unit::find($id);
-      $del->delete();
-      return redirect()->back();
-    }
+        $del = Unit::find($id);
+        $del->delete();
+        return redirect()->back();
+      }
+
+    //    -------------- CONTROLLER FOR PRODUCT BRAND ------------
+    public function brandStore(Request $request){
+        $brand = new Brand();
+        $brand->band_name = $request->band_name;
+        $brand->company_id = company_id();
+        $brand->save();
+        return redirect()->back();
+     }
+
+      //    -------------- CONTROLLER FOR PRODUCT CATEGORY ------------
+     public function categoryStore(Request $request){
+        $category = new ProductCategory();
+        $category->category_name = $request->category_name;
+        $category->company_id = company_id();
+        $category->save();
+        return redirect()->back();
+     }
+ 
+  
 
     /**
      * Display the specified resource.

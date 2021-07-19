@@ -24,7 +24,7 @@ git clean -xffd
 
 
 
-52.172.255.122
+
 To become root user type: sudo -i. sudo -s.
 ## Start command ##
 systemctl start apache2.service
