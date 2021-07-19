@@ -141,8 +141,8 @@
                   <div class="m-widget1">
                      <div class="m-widget1__item">
                         <div class="row m-row--no-padding align-items-center">
-                           <table class="table m-table m-table--head">
-                              <thead>
+                           <table class="table table-bordered m-table">
+                              <thead class="sbtable table">
                                  <tr>
                                    
                                     <th>
@@ -196,8 +196,8 @@
                   <div class="m-widget1">
                      <div class="m-widget1__item">
                         <div class="row m-row--no-padding align-items-center">
-                           <table class="table m-table m-table--head">
-                              <thead>
+						<table class="table table-bordered m-table">
+                              <thead class="sbtable table">
                                  <tr>
                                     
                                     <th>
@@ -251,8 +251,8 @@
                   <div class="m-widget1">
                      <div class="m-widget1__item">
                         <div class="row m-row--no-padding align-items-center">
-                           <table class="table m-table m-table--head">
-                              <thead>
+						<table class="table table-bordered m-table">
+                              <thead class="sbtable table">
                                  <tr>
                                    
                                     <th>
