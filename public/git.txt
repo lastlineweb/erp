@@ -1,5 +1,5 @@
 git add .
-git commit -m "2"
+git commit -m "200"
 git push -u
 
 
@@ -47,3 +47,6 @@ php artisan view:clear
 php artisan config:clear
 
 ok
+
+username:razibbayezid
+password:bangladesh123...
