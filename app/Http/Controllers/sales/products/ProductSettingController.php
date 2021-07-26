@@ -44,32 +44,56 @@ class ProductSettingController extends Controller
     {
         //
     }
-    
+
     //    -------------- CONTROLLER FOR PRODUCT UNIT ------------
     public function unitStore(Request $request){
-       $unit = new Unit();
-       $unit->unit_name = $request->unit_name;
-       $unit->company_id = company_id();
-       $unit->save();
-       return redirect()->back();
+        $unit = new Unit();
+        $unit->unit_name = $request->unit_name;
+        $unit->company_id = company_id();
+        $unit->save();
+        return redirect()->back();
     }
 
-    public function unitEdit(Request $request,$id)
+    // Unit Edit
+    public function unitEdit($id)
     {
-        $unit = Unit::where("id",$id)->where("company_id",company_id())->first();
-		if(! $request->ajax()){
-            return view('backend/sales/products/settings/modal.edit', compact('unit','id'));
-		}else{
-           return view('backend.accounting.product.modal.edit',compact('item','id'));
-          
-		}  
-        
+        $units = Unit::find($id);
+        if($units){
+            return response()->json([
+                'status'=>200,
+                'units'=>$units,
+            ]);
+        }else {
+            return response()->json([
+                'status'=>404,
+                'message'=>'Units Not Found',
+            ]);
+        }
+
     }
-    public function unitDelete($id){
-        $del = Unit::find($id);
-        $del->delete();
+    //    unit Updated Data
+    public function unitUpdate(Request $request){
+        $id = $request->id;
+        $unit = Unit::find($id);
+        $unit->unit_name    = $request->unit_name;
+        $unit->company_id   = company_id();
+        $unit->save();
         return redirect()->back();
-      }
+    }
+
+    //    unit Deleted Data
+    public function unitDelete(Request $request){
+
+        $id = $request->id;
+        if($id){
+            $del = Unit::find($id);
+            $del->delete();
+            return redirect()->back();
+        }else {
+            return redirect()->back();
+        }
+
+    }
 
     //    -------------- CONTROLLER FOR PRODUCT BRAND ------------
     public function brandStore(Request $request){
@@ -78,18 +102,58 @@ class ProductSettingController extends Controller
         $brand->company_id = company_id();
         $brand->save();
         return redirect()->back();
-     }
+    }
 
-      //    -------------- CONTROLLER FOR PRODUCT CATEGORY ------------
-     public function categoryStore(Request $request){
+    //    -------------- CONTROLLER FOR PRODUCT CATEGORY START ------------
+
+       // CATEGORY STORE
+    public function categoryStore(Request $request){
         $category = new ProductCategory();
         $category->category_name = $request->category_name;
         $category->company_id = company_id();
         $category->save();
         return redirect()->back();
-     }
- 
-  
+    }
+       // CATEGORY EDIT
+       public function categoryEdit($id)
+       {
+        // dd('con');
+        $category = ProductCategory::find($id);
+           if($category){
+               return response()->json([
+                   'status'=>200,
+                   'category'=>$category,
+               ]);
+           }else {
+               return response()->json([
+                   'status'=>404,
+                   'message'=>'Units Not Found',
+               ]);
+           }
+   
+       }
+        // CATEGORY UPDATE
+    public function categoryUpdate(Request $request){
+        $id = $request->id;
+        $category = ProductCategory::find($id);
+        $category->category_name   = $request->category_name;
+        $category->company_id   = company_id();
+        $category->save();
+        return redirect()->back();
+    }
+    public function categoryDelete(Request $request){
+        $id = $request->id;
+        if($id){
+            $del = ProductCategory::find($id);
+            $del->delete();
+            return redirect()->back();
+        }else {
+            return redirect()->back();
+        }
+
+    }
+
+    //    -------------- CONTROLLER FOR PRODUCT CATEGORY ENDS ------------
 
     /**
      * Display the specified resource.
