@@ -58,6 +58,7 @@ Route::resource('dashboard', DashboardController::class);
            Route::post('brand.edit/{id}', [ProductSettingController::class , 'brandEdit'])->name('brand.edit');
            Route::get('brand.delete/{id}', [ProductSettingController::class , 'brandDelete'])->name('brand.delete');
            Route::get('brand.edit/{id}', [ProductSettingController::class , 'brandEdit'])->name('brand.edit');
+           Route::get('brand.edit/{id}', [ProductSettingController::class , 'brandEdit'])->name('brand.edit');
 
 
 
