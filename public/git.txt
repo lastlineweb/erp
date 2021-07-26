@@ -19,7 +19,7 @@ php artisan db:seed --class=UpazilaSeeder
 
 git reset --hard HEAD
 git pull
-// this function to delete 
+// this function to delete
 git clean -xffd
 
 
@@ -45,3 +45,5 @@ chmod -R o+w nameofyourproject/storage
 php artisan cache:clear
 php artisan view:clear
 php artisan config:clear
+
+ok
